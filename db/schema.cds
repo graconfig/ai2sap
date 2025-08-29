@@ -20,5 +20,6 @@ entity output : cuid, managed {
     Length   : Integer;      // Length of the field
     Decimals : Integer;      // Number of decimal places
     Notes:      String(255); // Notes or comments about the field
-    content     : LargeString @UI.MultiLineText;
+    SampleValue : String(255); // Sample value for the field
+    // content     : LargeString @UI.MultiLineText;
 }
