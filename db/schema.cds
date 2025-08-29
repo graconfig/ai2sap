@@ -11,15 +11,23 @@ entity input : cuid, managed {
 }
 
 entity output : cuid, managed {
-    FieldName : String(60); // Name of the field
-    KeyFlag   : String(1);  // Indicates if the field is a key
-    Obligatory : String(1);  // Indicates if the field is obligatory
-    TableId : String(60);    // ID of the table
-    FieldId : String(60);    // ID of the field
-    DataType : String(30);   // Data type of the field
-    Length   : Integer;      // Length of the field
-    Decimals : Integer;      // Number of decimal places
-    Notes:      String(255); // Notes or comments about the field
+    name    : String(60);
+    content : LargeString @UI.MultiLineText;
+    items   : Composition of many outputitem
+                  on items.output = $self;
+}
+
+entity outputitem : cuid, managed {
+    output      : Association to output;
+    FieldName   : String(60); // Name of the field
+    KeyFlag     : String(1); // Indicates if the field is a key
+    Obligatory  : String(1); // Indicates if the field is obligatory
+    TableId     : String(60); // ID of the table
+    FieldId     : String(60); // ID of the field
+    DataType    : String(30); // Data type of the field
+    Length      : Integer; // Length of the field
+    Decimals    : Integer; // Number of decimal places
+    Notes       : String(255); // Notes or comments about the field
     SampleValue : String(255); // Sample value for the field
-    // content     : LargeString @UI.MultiLineText;
+// content     : LargeString @UI.MultiLineText;
 }

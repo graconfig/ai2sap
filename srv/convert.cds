@@ -12,5 +12,6 @@ service ConvertService @(path: '/ai2sap') {
 
     @cds.query.limit.max    : 1000
     @cds.query.limit.default: 100
-    entity output as projection on db.output
+    entity output as projection on db.output;
+    entity outputitem as projection on db.outputitem
 }
