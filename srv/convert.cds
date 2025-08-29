@@ -1,7 +1,7 @@
 using {pwc.hand.ai2sap as db} from '../db/schema';
 
 
-service ChatService @(path: '/ai2report') {
+service ConvertService @(path: '/ai2sap') {
 
     @cds.query.limit.max    : 1000
     @cds.query.limit.default: 100
