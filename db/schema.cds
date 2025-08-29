@@ -5,12 +5,21 @@ using {
 
 namespace pwc.hand.ai2sap;
 
+entity head : cuid, managed {
+    inputs  : Composition of many input
+                  on inputs.head = $self;
+    outputs : Composition of many output
+                  on outputs.head = $self;
+}
+
 entity input : cuid, managed {
+    head    : Association to head;
     name    : String(60);
     content : LargeString @UI.MultiLineText;
 }
 
 entity output : cuid, managed {
+    head    : Association to head;
     name    : String(60);
     content : LargeString @UI.MultiLineText;
     items   : Composition of many outputitem
