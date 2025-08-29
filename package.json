@@ -45,7 +45,8 @@
     "watch": "cds-tsx watch",
     "watch:hybrid": "cds-tsx watch --profile hybrid",
     "lint": "eslint . && prettier . --config ../.prettierrc --ignore-path ../.prettierignore -c",
-    "lint:fix": "eslint . --fix && prettier . --config ../.prettierrc --ignore-path ../.prettierignore -w --log-level error"
+    "lint:fix": "eslint . --fix && prettier . --config ../.prettierrc --ignore-path ../.prettierignore -w --log-level error",
+    "watch-convert": "cds watch --open convert/webapp/index.html?sap-ui-xx-viewCache=false"
   },
   "cds": {
     "query": {
@@ -78,6 +79,7 @@
     "#cds-models/*": "./@cds-models/*/index.js"
   },
   "sapux": [
-    "app/runtime"
+    "app/runtime",
+    "app/convert"
   ]
 }
