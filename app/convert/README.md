@@ -1,7 +1,7 @@
 ## Application Details
 |               |
 | ------------- |
-|**Generation Date and Time**<br>Fri Aug 29 2025 15:36:33 GMT+0800 (China Standard Time)|
+|**Generation Date and Time**<br>Mon Sep 01 2025 16:28:12 GMT+0800 (China Standard Time)|
 |**App Generator**<br>@sap/generator-fiori-elements|
 |**App Generator Version**<br>1.15.7|
 |**Generation Platform**<br>Visual Studio Code|
@@ -16,8 +16,8 @@
 |**Enable Code Assist Libraries**<br>False|
 |**Enable TypeScript**<br>False|
 |**Add Eslint configuration**<br>False|
-|**Main Entity**<br>head|
-|**Navigation Entity**<br>inputs|
+|**Main Entity**<br>origin|
+|**Navigation Entity**<br>items|
 
 ## convert
 

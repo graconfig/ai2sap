@@ -9,8 +9,8 @@ sap.ui.define(['sap/fe/test/ObjectPage'], function(ObjectPage) {
     return new ObjectPage(
         {
             appId: 'convert',
-            componentId: 'inputObjectPage',
-            contextPath: '/head/inputs'
+            componentId: 'targetitemObjectPage',
+            contextPath: '/origin/items'
         },
         CustomPageDefinitions
     );

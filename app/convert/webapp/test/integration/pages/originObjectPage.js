@@ -9,8 +9,8 @@ sap.ui.define(['sap/fe/test/ObjectPage'], function(ObjectPage) {
     return new ObjectPage(
         {
             appId: 'convert',
-            componentId: 'headObjectPage',
-            contextPath: '/head'
+            componentId: 'originObjectPage',
+            contextPath: '/origin'
         },
         CustomPageDefinitions
     );

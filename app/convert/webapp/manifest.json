@@ -13,7 +13,7 @@
     "sourceTemplate": {
       "id": "@sap/generator-fiori:lrop",
       "version": "1.15.7",
-      "toolsId": "803c23d5-0978-4657-8f5f-bdf843aaad29"
+      "toolsId": "3991e016-1e8e-45da-9b50-1a79ed1d7807"
     },
     "dataSources": {
       "mainService": {
@@ -98,33 +98,28 @@
       "routes": [
         {
           "pattern": ":?query:",
-          "name": "headList",
-          "target": "headList"
+          "name": "originList",
+          "target": "originList"
         },
         {
-          "pattern": "head({key}):?query:",
-          "name": "headObjectPage",
-          "target": "headObjectPage"
-        },
-        {
-          "name": "head_outputsObjectPage",
-          "pattern": "head({key})/outputs({outputsKey}):?query:",
-          "target": "head_outputsObjectPage"
+          "pattern": "origin({key}):?query:",
+          "name": "originObjectPage",
+          "target": "originObjectPage"
         }
       ],
       "targets": {
-        "headList": {
+        "originList": {
           "type": "Component",
-          "id": "headList",
+          "id": "originList",
           "name": "sap.fe.templates.ListReport",
           "options": {
             "settings": {
-              "contextPath": "/head",
+              "contextPath": "/origin",
               "variantManagement": "Page",
               "navigation": {
-                "head": {
+                "origin": {
                   "detail": {
-                    "route": "headObjectPage"
+                    "route": "originObjectPage"
                   }
                 }
               },
@@ -138,44 +133,15 @@
             }
           }
         },
-        "headObjectPage": {
+        "originObjectPage": {
           "type": "Component",
-          "id": "headObjectPage",
+          "id": "originObjectPage",
           "name": "sap.fe.templates.ObjectPage",
           "options": {
             "settings": {
               "editableHeaderContent": false,
-              "contextPath": "/head",
-              "navigation": {
-                "outputs": {
-                  "detail": {
-                    "route": "head_outputsObjectPage"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "head_outputsObjectPage": {
-          "type": "Component",
-          "id": "head_outputsObjectPage",
-          "name": "sap.fe.templates.ObjectPage",
-          "options": {
-            "settings": {
-              "editableHeaderContent": false,
-              "navigation": {},
-              "contextPath": "/head/outputs",
-              "controlConfiguration": {
-                "items/@com.sap.vocabularies.UI.v1.LineItem#i18nItems": {
-                  "tableSettings": {
-                    "type": "GridTable",
-                    "editable": false,
-                    "creationMode": {
-                      "createAtEnd": false
-                    }
-                  }
-                }
-              }
+              "contextPath": "/origin",
+              "navigation": {}
             }
           }
         }

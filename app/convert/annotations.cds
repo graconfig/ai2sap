@@ -1,6 +1,5 @@
 using ConvertService as service from '../../srv/convert';
-
-annotate ConvertService.head @(
+annotate service.origin @(
     odata.draft.enabled,
     UI.Identification : [
         {
@@ -10,72 +9,27 @@ annotate ConvertService.head @(
         },
     ],
 );
-annotate service.head with @(
-    UI.FieldGroup #GeneratedGroup : {
-        $Type : 'UI.FieldGroupType',
-        Data : [
-        ],
-    },
-    UI.Facets : [
-        {
-            $Type : 'UI.ReferenceFacet',
-            Label : '{i18n>Input}',
-            ID : 'i18nInput',
-            Target : 'inputs/@UI.LineItem#i18nInput',
-        },
-        {
-            $Type : 'UI.ReferenceFacet',
-            Label : '{i18n>Output}',
-            ID : 'i18nOutput',
-            Target : 'outputs/@UI.LineItem#i18nOutput',
-        },
-    ],
+annotate service.origin with @(
     UI.LineItem : [
         {
             $Type : 'UI.DataField',
-            Value : ID,
-            Label : 'ID',
-        },
-        {
-            $Type : 'UI.DataField',
-            Value : createdBy,
-        },
-        {
-            $Type : 'UI.DataField',
-            Value : createdAt,
-        },
-    ],
-) actions {
-    @Common.SideEffects: {TargetEntities: ['in/output']}
-    convert;
-};
-
-annotate service.input with @(
-    UI.LineItem #i18nInput : [
-        {
-            $Type : 'UI.DataField',
             Value : name,
             Label : 'name',
         },
         {
             $Type : 'UI.DataField',
-            Value : content,
-            Label : 'content',
-        },
-    ]
-);
-
-annotate service.output with @(
-    UI.LineItem #i18nOutput : [
-        {
-            $Type : 'UI.DataField',
-            Value : name,
-            Label : 'name',
+            Value : content_origin,
+            Label : 'content_origin',
         },
         {
             $Type : 'UI.DataField',
-            Value : content,
-            Label : 'content',
+            Value : content_target,
+            Label : 'content_target',
+        },
+        {
+            $Type : 'UI.DataFieldForAction',
+            Action : 'ConvertService.convert',
+            Label : 'convert',
         },
     ],
     UI.Facets : [
@@ -87,9 +41,9 @@ annotate service.output with @(
         },
         {
             $Type : 'UI.ReferenceFacet',
-            Label : '{i18n>Items}',
-            ID : 'i18nItems',
-            Target : 'items/@UI.LineItem#i18nItems',
+            Label : 'targetitem',
+            ID : 'targetitem',
+            Target : 'items/@UI.LineItem#targetitem',
         },
     ],
     UI.FieldGroup #i18nBasic : {
@@ -102,15 +56,20 @@ annotate service.output with @(
             },
             {
                 $Type : 'UI.DataField',
-                Value : content,
-                Label : 'content',
+                Value : content_origin,
+                Label : '{i18n>Contentorigin}',
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : content_target,
+                Label : '{i18n>Contenttarget}',
             },
         ],
     },
 );
 
-annotate service.outputitem with @(
-    UI.LineItem #i18nItems : [
+annotate service.targetitem with @(
+    UI.LineItem #targetitem : [
         {
             $Type : 'UI.DataField',
             Value : FieldName,
@@ -163,44 +122,4 @@ annotate service.outputitem with @(
         },
     ]
 );
-
-annotate service.outputitem with {
-    FieldName @Common.FieldControl : #ReadOnly
-};
-
-annotate service.outputitem with {
-    KeyFlag @Common.FieldControl : #ReadOnly
-};
-
-annotate service.outputitem with {
-    Obligatory @Common.FieldControl : #ReadOnly
-};
-
-annotate service.outputitem with {
-    TableId @Common.FieldControl : #ReadOnly
-};
-
-annotate service.outputitem with {
-    FieldId @Common.FieldControl : #ReadOnly
-};
-
-annotate service.outputitem with {
-    DataType @Common.FieldControl : #ReadOnly
-};
-
-annotate service.outputitem with {
-    Length @Common.FieldControl : #ReadOnly
-};
-
-annotate service.outputitem with {
-    Decimals @Common.FieldControl : #ReadOnly
-};
-
-annotate service.outputitem with {
-    Notes @Common.FieldControl : #ReadOnly
-};
-
-annotate service.outputitem with {
-    SampleValue @Common.FieldControl : #ReadOnly
-};
 

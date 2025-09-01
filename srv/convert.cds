@@ -8,6 +8,5 @@ service ConvertService @(path: '/ai2sap') {
         actions {
             action convert() returns Boolean;
         };
-    entity target      as projection on db.target;
     entity targetitem  as projection on db.targetitem;
 }
