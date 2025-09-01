@@ -5,29 +5,23 @@ using {
 
 namespace pwc.hand.ai2sap;
 
-entity head : cuid, managed {
-    inputs  : Composition of many input
-                  on inputs.head = $self;
-    outputs : Composition of many output
-                  on outputs.head = $self;
-}
-
-entity input : cuid, managed {
-    head    : Association to head;
+entity origin : cuid, managed {
     name    : String(60);
     content : LargeString @UI.MultiLineText;
+    target  : Composition of target
+                  on target.origin = $self;
 }
 
-entity output : cuid, managed {
-    head    : Association to head;
+entity target : cuid, managed {
+    origin  : Association to origin;
     name    : String(60);
     content : LargeString @UI.MultiLineText;
-    items   : Composition of many outputitem
-                  on items.output = $self;
+    items   : Composition of many targetitem
+                  on items.target = $self;
 }
 
-entity outputitem : cuid, managed {
-    output      : Association to output;
+entity targetitem : cuid, managed {
+    target      : Association to target;
     FieldName   : String(60); // Name of the field
     KeyFlag     : String(1); // Indicates if the field is a key
     Obligatory  : String(1); // Indicates if the field is obligatory
